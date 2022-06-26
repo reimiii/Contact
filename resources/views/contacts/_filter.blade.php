@@ -15,6 +15,7 @@
                 <div class="col">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control"
+                               id="search"
                                name="search" value="{{ request('search') }}"
                                placeholder="Search..." aria-label="Search..."
                                aria-describedby="button-addon2">

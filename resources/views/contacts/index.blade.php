@@ -72,7 +72,8 @@
 
                         <div class="my-8">
 
-                            {{ $contacts->appends(request()->only('c_id'))->links() }}
+                            {{ $contacts->appends(request()->only('search', 'c_id'))->links() }}
+
                         </div>
 
                     </div>
