@@ -13,7 +13,7 @@
                             <strong>Edit Contact</strong>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('contact.update', $contact->id) }}"
+                            <form action="{{ route('contact.update', $contact) }}"
                                   method="POST">
                                 @method('PUT')
                                 @csrf

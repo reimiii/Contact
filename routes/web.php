@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Route::get('/contact', [
+//Route::resource('/contact', ContactController::class);
+//
+Route::get('/', [
     ContactController::class,
     'index'
 ])->name('contact');
@@ -33,22 +35,22 @@ Route::post('/contact', [
     'store'
 ])->name('contact.store');
 
-Route::get('/contact/{id}', [
+Route::get('/contact/{contact:first_name}', [
     ContactController::class,
     'show'
 ])->name('contact.show');
 
-Route::get('/contact/{id}/edit', [
+Route::get('/contact/{contact:first_name}/edit', [
     ContactController::class,
     'edit'
 ])->name('contact.edit');
 
-Route::put('/contact/{id}', [
+Route::put('/contact/{contact:first_name}', [
     ContactController::class,
     'update'
 ])->name('contact.update');
 
-Route::delete('/contact/{id}', [
+Route::delete('/contact/{contact:first_name}', [
     ContactController::class,
     'delete'
 ])->name('contact.delete');

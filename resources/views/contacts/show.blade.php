@@ -70,10 +70,20 @@
                                     <hr>
                                     <div class="form-group row mb-0">
                                         <div class="col-md-9 offset-md-3">
-                                            <a href="{{ route('contact.edit', $contact->id) }}"
+                                            <a href="{{ route('contact.edit', $contact) }}"
                                                class="btn
                                             btn-info">Edit</a>
-                                            <a href="#" class="btn btn-outline-danger">Delete</a>
+                                            <form action="{{ route('contact.delete', $contact) }}"
+                                                  method="POST"
+                                                  class="d-inline-block">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit"
+                                                        class="btn btn-danger">Delete
+                                                </button>
+                                            </form>
+                                            {{--                                            <a href="{{ route('contact.delete', $contact) }}"--}}
+                                            {{--                                               class="btn-delete btn btn-outline-danger">Delete</a>--}}
                                             <a href="{{ route('contact') }}" class="btn
                                             btn-outline-secondary">Cancel</a>
                                         </div>

@@ -46,10 +46,11 @@ class ContactController extends Controller {
         return redirect()->route('contact')->with('success', 'Contact created successfully');
     }
 
-    public function edit(Company $comp, Contact $cond, $id)
+    public function edit(Company $comp, Contact $contact)
     {
         $companies = $comp->comget();
-        $contact   = $cond->condit($id);
+//        $contact   = $cond->condit($id);
+
 
         return view('contacts.edit', [
             'companies' => $companies,
@@ -57,7 +58,7 @@ class ContactController extends Controller {
         ]);
     }
 
-    public function update(Request $request, Contact $cond, $id)
+    public function update(Request $request, Contact $contact)
     {
         $request->validate([
             'first_name' => 'required',
@@ -68,24 +69,24 @@ class ContactController extends Controller {
             'company_id' => 'required|exists:companies,id',
         ]);
 
-        $cond->condit($id)->update($request->all());
+//        $cond->condit($id)->update($request->all());
+        $contact->update($request->all());
 
         return redirect()->route('contact')->with('success', 'Contact updated successfully');
     }
 
-    public function delete(Contact $cond, $id)
+    public function delete(Contact $contact)
     {
-        $cond->condit($id)->delete();
-
+        $contact->delete();
         return redirect()->route('contact')->with('success', 'Contact deleted successfully');
     }
 
-    public function show($id)
+    public function show(Contact $contact)
     {
-        $contact = Contact::with('company')->findOrFail($id);
+//        $contact = Contact::with('company')->findOrFail($id);
 
         return view('contacts.show', [
-            'contact' => $contact,
+            'contact' => $contact->load('company'),
         ]);
     }
 

@@ -45,15 +45,15 @@
                                         <td>{{ $contact->email }}</td>
                                         <td>{{ $contact->company->name }}</td>
                                         <td>
-                                            <a href="{{ route('contact.show', $contact->id) }}"
+                                            <a href="{{ route('contact.show', $contact) }}"
                                                class="btn btn-sm btn-outline-info">
                                                 <i class="fa fa-eye"></i>
                                             </a>
-                                            <a href="{{ route('contact.edit', $contact->id) }}"
+                                            <a href="{{ route('contact.edit', $contact) }}"
                                                class="btn btn-sm btn-outline-warning">
                                                 <i class="fa fa-edit"></i>
                                             </a>
-                                            <a href="{{ route('contact.delete', $contact->id) }}"
+                                            <a href="{{ route('contact.delete', $contact) }}"
                                                class="btn-delete btn btn-sm btn-outline-danger">
                                                 <i class="fa fa-trash"></i>
                                             </a>

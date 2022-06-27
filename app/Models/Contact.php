@@ -20,6 +20,7 @@ class Contact extends Model {
         'company_id'
     ];
 
+
     public function conget()
     {
         return Contact::with('company')
@@ -44,10 +45,12 @@ class Contact extends Model {
             })->simplePaginate(Contact::PAGINATION_COUNT);
     }
 
-    public function condit($id)
-    {
-        return Contact::findOrFail($id);
-    }
+
+
+//    public function condit($id)
+//    {
+//        return Contact::findOrFail($id);
+//    }
 
     public function company()
     {
